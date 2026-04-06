@@ -25,7 +25,7 @@ const hero = () => {
 
     return (
         <div id='home' className='flex flex-col items-center justify-around bg-[url("../../public/hero.png")] bg-center bg-cover h-150 relative text-center'>
-            <div className='absolute top-0 left-0 w-screen h-150 bg-[rgba(0,0,0,0.5)]'></div>
+            
             <div className='flex flex-col items-center justify-around text-white m-auto z-10 space-y-6'>
                 <h1 className='text-6xl text-white uppercase font-bold font-serif tracking-wider'>
                   {displayedText}
