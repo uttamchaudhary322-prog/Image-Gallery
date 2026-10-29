@@ -4,6 +4,8 @@ import { ChevronLeft } from 'lucide-react'
 import { ChevronRight } from 'lucide-react'
 import { animateGallery } from './gsap'
 
+const API_URL = import.meta.env.VITE_API_URL
+
 const gallery = () => {
 
     useEffect(() => {
@@ -16,7 +18,9 @@ const gallery = () => {
 
     const data = async () => {
         setLoading(true)
-        const response = await axios.get(`https://picsum.photos/v2/list?page=${count}&limit=20`)
+        const response = await axios.get(API_URL, {
+            params: { page: count, limit: 20 }
+        })
         setUserData(response.data)
         setLoading(false)
     }
@@ -52,7 +56,7 @@ const gallery = () => {
         <div className='mt-6 sm:mt-8 md:mt-10 overflow-auto h-auto flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-8' id='gallery'>
             <h1 className='my-4 sm:my-6 font-bold text-2xl sm:text-4xl md:text-5xl skill-heading'>Image Gallery</h1>
 
-            <div className='flex flex-wrap gap-3 sm:gap-4 md:gap-6 items-center justify-center mb-6 sm:mb-8 md:mb-10 gallery-card'>
+            <div className='flex flex-wrap gap-2 sm:gap-4 md:gap-6 items-center justify-center mb-6 sm:mb-8 md:mb-10 gallery-card'>
                 {PrintedData}
             </div>
             <div className='flex items-center justify-center gap-2 sm:gap-4 flex-wrap pb-6'>
